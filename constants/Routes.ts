@@ -1,55 +1,63 @@
-export const menuRoutes = [
+import { Ionicons } from "@expo/vector-icons";
+
+interface MenuRoute {
+  title: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  name: string;
+}
+
+export const menuRoutes: MenuRoute[] = [
   {
     title: "Pull to refresh",
     icon: "refresh-outline",
-    name: "pull-to-refresh/index",
+    name: "pull-to-refresh",
   },
   {
     title: "Section List",
     icon: "list-outline",
-    name: "section-list/index",
+    name: "section-list",
   },
   {
     title: "Modal",
     icon: "copy-outline",
-    name: "modal/index",
+    name: "modal",
   },
   {
     title: "InfiniteScroll",
     icon: "download-outline",
-    name: "infinite-scroll/index",
+    name: "infinite-scroll",
   },
   {
     title: "Slides",
     icon: "flower-outline",
-    name: "slides/index",
+    name: "slides",
   },
   {
     title: "Themes",
     icon: "flask-outline",
-    name: "themes/index",
+    name: "themes",
   },
 ];
 
-export const uiMenuRoutes = [
+export const uiMenuRoutes: MenuRoute[] = [
   {
     title: "Switches",
     icon: "toggle-outline",
-    name: "switches/index",
+    name: "switches",
   },
   {
     title: "Alerts",
     icon: "alert-circle-outline",
-    name: "alerts/index",
+    name: "alerts",
   },
   {
     title: "TextInputs",
     icon: "document-text-outline",
-    name: "text-inputs/index",
+    name: "text-inputs",
   },
 ];
 
-export const animationMenuRoutes = [
+export const animationMenuRoutes: MenuRoute[] = [
   {
     title: "Animation 101",
     icon: "cube-outline",
