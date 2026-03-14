@@ -8,10 +8,10 @@ import "../global.css";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import React from "react";
-import { Text } from "react-native";
 
+import { allRoutes } from "@/constants/Routes";
 import { useThemeColor } from "@/hooks/use-theme-color";
-import ThemedView from "@/presentation/shared/ThemedView";
+import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function RootLayout() {
@@ -23,13 +23,33 @@ export default function RootLayout() {
       style={{ flex: 1, backgroundColor: backgroundColor }}
     >
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <ThemedView margin>
-          <Text className="text-3xl mt-10 text-light-text dark:text-dark-text">
-            Root Layout
-          </Text>
-        </ThemedView>
-        {/* <Stack>
-      </Stack> */}
+        {/* <ThemedView margin>
+          <ThemedText className="mt-20">Root Layouts</ThemedText>
+        </ThemedView> */}
+        <Stack
+          screenOptions={{
+            headerShadowVisible: false,
+            contentStyle: { backgroundColor },
+            headerStyle: { backgroundColor },
+          }}
+        >
+          <Stack.Screen
+            name="index"
+            options={{
+              title: "",
+            }}
+          />
+
+          {allRoutes.map((route) => (
+            <Stack.Screen
+              key={route.name}
+              name={route.name}
+              options={{
+                title: route.title,
+              }}
+            />
+          ))}
+        </Stack>
       </ThemeProvider>
     </GestureHandlerRootView>
   );
