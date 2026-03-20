@@ -12,7 +12,7 @@ interface Props extends ViewProps {
 
 const ThemedView = ({
   style,
-  clasName,
+  className,
   margin = false,
   children,
   safe = false,
@@ -32,6 +32,7 @@ const ThemedView = ({
         },
         style,
       ]}
+      className={className}
     >
       {children}
     </View>

@@ -1,17 +1,46 @@
+import { useAnimation } from "@/hooks/useAnimation";
 import ThemedButton from "@/presentation/shared/ThemedButton";
 import ThemedView from "@/presentation/shared/ThemedView";
-import { Text } from "react-native";
+import { Animated, Easing } from "react-native";
 
 const Animation101Screen = () => {
-  return (
-    <ThemedView>
-      <Text>Animation101Screen</Text>
+  const {
+    fadeIn,
+    fadeOut,
+    startMovingTopPosition,
+    animatedOpacity,
+    animatedTop,
+    status,
+  } = useAnimation();
 
-      <ThemedButton className="mb-5" onPress={() => console.log("fadeIn")}>
+  return (
+    <ThemedView className="flex-1 justify-center items-center" margin>
+      <Animated.View
+        className="bg-light-secondary dark:bg-dark-secondary rounded-xl"
+        style={{
+          width: 150,
+          height: 150,
+          opacity: animatedOpacity,
+          transform: [{ translateY: animatedTop }],
+        }}
+      />
+
+      <ThemedButton
+        className="my-5"
+        onPress={() => {
+          fadeIn({});
+          startMovingTopPosition({ easing: Easing.bounce, duration: 700 });
+        }}
+        canPress={!status}
+      >
         FadeIn
       </ThemedButton>
 
-      <ThemedButton className="mb-5" onPress={() => console.log("fadeOut")}>
+      <ThemedButton
+        className="my-5"
+        onPress={() => fadeOut({})}
+        canPress={status}
+      >
         FadeOut
       </ThemedButton>
     </ThemedView>
