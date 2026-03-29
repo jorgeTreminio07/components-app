@@ -5,7 +5,7 @@ interface Props extends TextProps {
   type?: "normal" | "h1" | "h2" | "semi-bold" | "link";
 }
 
-const ThemedText = ({ className, type, ...rest }: Props) => {
+const ThemedText = ({ className, type, children, ...rest }: Props) => {
   // className="text-3xl mt-10 text-light-text dark:text-dark-text"
   return (
     <Text
@@ -21,7 +21,7 @@ const ThemedText = ({ className, type, ...rest }: Props) => {
         .join(" ")}
       {...rest}
     >
-      {rest.children}
+      {children}
     </Text>
   );
 };

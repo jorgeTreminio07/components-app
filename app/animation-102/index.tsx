@@ -34,6 +34,8 @@ const Animation102Screen = () => {
           {...panResponder.panHandlers}
           style={[pan.getLayout(), styles.box]}
         />
+
+        
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   box: {
-    backgroundColor: "#61dafb",
+    backgroundColor: "#ff6347",
     width: 80,
     height: 80,
     borderRadius: 4,
